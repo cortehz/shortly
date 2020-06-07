@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef } from "react";
+import "./App.scss";
+import NavBar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
+import ShortenerSection from "./components/ShortenerSection/ShortenerSection";
+import { useOnClickOutside } from "./hooks";
 
 function App() {
+  // const initialCount = () => window.localStorage.getItem("data");
+
+  const [open, setOpen] = useState(false);
+  const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
+  const [idNumber, setIdNumber] = useState(0);
+  // const [query, setQuery] = useState("");
+  // const [search, setSearch] = useState("");
+
+  const node = useRef();
+  useOnClickOutside(node, () => setOpen(false));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div ref={node}>
+        <NavBar open={open} setOpen={setOpen} />
+      </div>
+      <Hero />
+      <ShortenerSection
+        data={data}
+        setData={setData}
+        query={query}
+        setQuery={setQuery}
+        search={search}
+        setSearch={setSearch}
+        idNumber={idNumber}
+        setIdNumber={setIdNumber}
+      />
     </div>
   );
 }
