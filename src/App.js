@@ -29,8 +29,6 @@ function App() {
         setData={setData}
         query={query}
         setQuery={setQuery}
-        search={search}
-        setSearch={setSearch}
         idNumber={idNumber}
         setIdNumber={setIdNumber}
       />

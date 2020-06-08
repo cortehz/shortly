@@ -1,0 +1,45 @@
+@import "../../design-tokens/scss_variables.scss";
+
+.input-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5rem 0 5rem;
+    height: 150px;
+
+    .form-container {
+        background: url(../ShortenerSection/bg-shorten-desktop.svg) no-repeat $colorDarkviolet;
+        background-size: cover;
+        background-position: center center;
+        height: 100%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+
+        form {
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            width: 80%;
+            margin: auto;
+
+            input {
+                width: 100%;
+                margin-right: 20px;
+                border-radius: 10px;
+                padding: 15px;
+                font-size: 1.2rem;
+            }
+
+            button {
+                border-radius: 10px;
+                width: 25%;
+            }
+        }
+    }
+
+
+    .link-list-container {
+        padding: 0;
+    }
+
+}

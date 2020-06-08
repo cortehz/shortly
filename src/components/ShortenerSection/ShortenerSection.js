@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
+import "./shortener.scss";
 
 const ShortenerSection = ({
   data,
@@ -9,9 +10,23 @@ const ShortenerSection = ({
   idNumber,
   setIdNumber,
 }) => {
+  //text copying const [copySuccess, setCopySuccess] = useState('');
+  const [copySuccess, setCopySuccess] = useState("");
+  const textAreaRef = useRef(null);
+
+  function copyToClipboard(e) {
+    textAreaRef.current.select();
+    document.execCommand("copy");
+    // This is just personal preference.
+    // I prefer to not show the the whole text area selected.
+    e.target.focus();
+    setCopySuccess("Copied!");
+  }
+
   const api = axios.create({
     baseURL: "https://rel.ink/api/links/",
   });
+
   async function loadApi(e) {
     e.preventDefault();
 
@@ -47,22 +62,33 @@ const ShortenerSection = ({
   const newArr = JSON.parse(window.localStorage.getItem("myArr"));
 
   return (
-    <div>
-      <div className="input-container">
+    <div className="input-container">
+      <div className="form-container">
         <form onSubmit={loadApi}>
           <input
             type="text"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
           />
+
           <button type="submit">Shorten it!</button>
         </form>
       </div>
 
-      <ul>
+      <ul className="link-list-container">
         {newArr.map((data) => (
           <li key={data.id}>
-            <a href={data.shortedLink}>{data.shortedLink}</a> <br></br>
+            <a href={data.shortedLink} ref={textAreaRef}>
+              {data.shortedLink}
+            </a>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(data.shortedLink);
+              }}
+            >
+              copy
+            </button>
+            {copySuccess}
           </li>
         ))}
       </ul>
