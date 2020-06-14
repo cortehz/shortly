@@ -1,45 +1,93 @@
 @import "../../design-tokens/scss_variables.scss";
 
-.input-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5rem 0 5rem;
-    height: 150px;
+.shortener-main {
+    background-color: $Gray-light;
+    padding-bottom: 5rem;
 
-    .form-container {
-        background: url(../ShortenerSection/bg-shorten-desktop.svg) no-repeat $colorDarkviolet;
-        background-size: cover;
-        background-position: center center;
-        height: 100%;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
 
-        form {
+    .input-container {
+        margin: 0 auto;
+        padding: 0 5rem 0 5rem;
+        height: 150px;
+        transform: translateY(-50%);
+
+        .form-container {
+            background: url(../ShortenerSection/bg-shorten-desktop.svg) no-repeat $colorDarkviolet;
+            background-size: cover;
+            background-position: center center;
+            height: 100%;
+            border-radius: 10px;
             display: flex;
-            justify-content: center;
-            height: 50px;
-            width: 80%;
-            margin: auto;
+            align-items: center;
 
-            input {
-                width: 100%;
+            form {
+                display: flex;
+                justify-content: center;
+                width: 90%;
+                margin: auto;
+
+                input {
+                    width: 100%;
+                    margin-right: 20px;
+                    border-radius: 10px;
+                    padding: 15px;
+                    font-size: 1.2rem;
+                }
+
+                button {
+                    border-radius: 10px;
+                    width: 20%;
+                    border: 0;
+                    background: $colorCyan;
+                    color: #fff;
+                    font-weight: 700;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+
+
+
+    }
+
+    .link-list-container {
+        margin: 0;
+        margin-top: 20px;
+        padding: 0 5rem 0 5rem;
+        transform: translateY(-20%);
+
+        li {
+            display: flex;
+            background-color: #fff;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            align-items: center;
+            padding: 20px;
+
+            .shortlink {
+                margin-right: auto;
+                color: $VeryDarkViolet;
+                cursor: pointer;
+            }
+
+            .clipped-link {
+                color: $colorCyan;
                 margin-right: 20px;
-                border-radius: 10px;
-                padding: 15px;
-                font-size: 1.2rem;
+
             }
 
             button {
-                border-radius: 10px;
-                width: 25%;
+                background-color: $colorCyan;
+                color: #fff;
+                padding: 10px 30px 10px 30px;
+                border: 0;
+                border-radius: 5px;
+                font-weight: 700;
+                font-size: 1rem;
+                cursor: pointer;
             }
         }
     }
-
-
-    .link-list-container {
-        padding: 0;
-    }
-
 }

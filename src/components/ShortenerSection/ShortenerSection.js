@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 import "./shortener.scss";
+import Copy from "../Copy/Copy";
 
 const ShortenerSection = ({
   data,
@@ -62,23 +63,32 @@ const ShortenerSection = ({
   const newArr = JSON.parse(window.localStorage.getItem("myArr"));
 
   return (
-    <div className="input-container">
-      <div className="form-container">
-        <form onSubmit={loadApi}>
-          <input
-            type="text"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-          />
+    <div className="shortener-main">
+      <div className="input-container">
+        <div className="form-container">
+          <form onSubmit={loadApi}>
+            <input
+              type="text"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+            />
 
-          <button type="submit">Shorten it!</button>
-        </form>
+            <button type="submit">Shorten it!</button>
+          </form>
+        </div>
       </div>
-
       <ul className="link-list-container">
         {newArr.map((data) => (
           <li key={data.id}>
-            <a href={data.shortedLink} ref={textAreaRef}>
+            <a href={data.link} className="shortlink" target="_blanck">
+              {data.link}
+            </a>
+            <a
+              href={data.shortedLink}
+              ref={textAreaRef}
+              className="clipped-link"
+              target="_blanck"
+            >
               {data.shortedLink}
             </a>
             <button
@@ -92,6 +102,8 @@ const ShortenerSection = ({
           </li>
         ))}
       </ul>
+
+      <Copy />
     </div>
   );
 };

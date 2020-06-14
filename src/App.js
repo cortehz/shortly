@@ -24,6 +24,7 @@ function App() {
         <NavBar open={open} setOpen={setOpen} />
       </div>
       <Hero />
+
       <ShortenerSection
         data={data}
         setData={setData}
