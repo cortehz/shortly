@@ -55,7 +55,8 @@
 @media (max-width: 810px) {
     .hero-container {
         flex-direction: column;
-        padding-left: 2rem;
+        padding: 0rem 2rem 0 2rem;
+
 
         .hero-illutration {
             order: 1;
@@ -64,6 +65,7 @@
         .hero-copy {
             order: 2;
             align-items: center;
+            margin: 0;
 
             h1 {
                 text-align: center;
