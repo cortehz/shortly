@@ -53,12 +53,15 @@ const ShortenerSection = ({
         },
       ]);
 
+      console.log(data);
       window.localStorage.setItem("myArr", JSON.stringify(data));
       setIdNumber(idNumber + 1);
 
       // setSearch();
     }
   }
+
+  window.localStorage.setItem("myArr", JSON.stringify(data));
 
   const newArr = JSON.parse(window.localStorage.getItem("myArr"));
 
@@ -69,8 +72,10 @@ const ShortenerSection = ({
           <form onSubmit={loadApi}>
             <input
               type="text"
+              placeholder="http://example.com"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
+              required
             />
 
             <button type="submit">Shorten it!</button>

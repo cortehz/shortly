@@ -4,6 +4,7 @@ import NavBar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import ShortenerSection from "./components/ShortenerSection/ShortenerSection";
 import { useOnClickOutside } from "./hooks";
+import Cta from "./components/Cta/Cta";
 
 function App() {
   // const initialCount = () => window.localStorage.getItem("data");
@@ -33,6 +34,8 @@ function App() {
         idNumber={idNumber}
         setIdNumber={setIdNumber}
       />
+
+      <Cta />
     </div>
   );
 }
