@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import axios from "axios";
 import "./shortener.scss";
 import Copy from "../Copy/Copy";
@@ -12,17 +12,17 @@ const ShortenerSection = ({
   setIdNumber,
 }) => {
   //text copying const [copySuccess, setCopySuccess] = useState('');
-  const [copySuccess, setCopySuccess] = useState("");
+  // const [copySuccess, setCopySuccess] = useState("");
   const textAreaRef = useRef(null);
 
-  function copyToClipboard(e) {
-    textAreaRef.current.select();
-    document.execCommand("copy");
-    // This is just personal preference.
-    // I prefer to not show the the whole text area selected.
-    e.target.focus();
-    setCopySuccess("Copied!");
-  }
+  // function copyToClipboard(e) {
+  //   textAreaRef.current.select();
+  //   document.execCommand("copy");
+  // This is just personal preference.
+  // I prefer to not show the the whole text area selected.
+  //   e.target.focus();
+  //   setCopySuccess("Copied!");
+  // }
 
   const api = axios.create({
     baseURL: "https://rel.ink/api/links/",
@@ -103,7 +103,6 @@ const ShortenerSection = ({
             >
               copy
             </button>
-            {copySuccess}
           </li>
         ))}
       </ul>

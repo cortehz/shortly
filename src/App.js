@@ -5,6 +5,7 @@ import Hero from "./components/Hero/Hero";
 import ShortenerSection from "./components/ShortenerSection/ShortenerSection";
 import { useOnClickOutside } from "./hooks";
 import Cta from "./components/Cta/Cta";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   // const initialCount = () => window.localStorage.getItem("data");
@@ -36,6 +37,8 @@ function App() {
       />
 
       <Cta />
+
+      <Footer />
     </div>
   );
 }
