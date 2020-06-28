@@ -112,7 +112,8 @@
                     margin: 15px auto;
 
                     input {
-                        width: 100%;
+                        width: auto;
+                        margin-right: 0px;
                     }
 
                     button {
@@ -149,7 +150,7 @@
 
         .link-list-container {
             padding: 0 2rem 0 2rem;
-            margin-top: 100px;
+            margin-top: 50px;
 
             li {
                 flex-direction: column;

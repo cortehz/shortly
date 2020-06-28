@@ -15,9 +15,9 @@ const Copy = () => {
       </p>
 
       <main>
-        <section class="easybank-services">
-          <div class="services-item-container">
-            <div class="services-item">
+        <section className="easybank-services">
+          <div className="services-item-container">
+            <div className="services-item">
               <div className="icon-background">
                 <img src={brand} alt="online banking icon" />
               </div>
@@ -30,7 +30,7 @@ const Copy = () => {
               </p>
             </div>
             <div className="separator"></div>
-            <div class="services-item detailed">
+            <div className="services-item detailed">
               <div className="icon-background">
                 <img src={detailed} alt="simple budgeting icon" />
               </div>
@@ -42,7 +42,7 @@ const Copy = () => {
               </p>
             </div>
             <div className="separator"></div>
-            <div class="services-item customize">
+            <div className="services-item customize">
               <div className="icon-background">
                 <img src={customize} alt="fast onboarding icon" />
               </div>

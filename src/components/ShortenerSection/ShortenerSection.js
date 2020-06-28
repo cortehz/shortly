@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import "./shortener.scss";
 import Copy from "../Copy/Copy";
@@ -52,8 +52,7 @@ const ShortenerSection = ({
           id: idNumber,
         },
       ]);
-
-      console.log(data);
+      setQuery("");
       window.localStorage.setItem("myArr", JSON.stringify(data));
       setIdNumber(idNumber + 1);
 
