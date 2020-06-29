@@ -73,7 +73,7 @@ const ShortenerSection = ({
               type="text"
               placeholder="http://example.com"
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => setQuery(event.target.value.toLowerCase())}
               required
             />
 
