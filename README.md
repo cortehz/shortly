@@ -1,5 +1,7 @@
 This is a URL Shortener built from the REL.LY API it was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+View here [https://short-me.netlify.app](https://short-me.netlify.app)
+
 ## Available Scripts
 
 In the project directory, you can run:
