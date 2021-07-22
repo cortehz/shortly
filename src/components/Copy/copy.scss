@@ -1,115 +1,112 @@
-@import "../../design-tokens/scss_variables.scss";
-
+@import "../../variables/scssVariables.scss";
 
 main {
-    section {
-        display: flex;
-        flex-direction: column;
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .easybank-services {
+    h3 {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+  }
+
+  .services-item-container {
+    display: flex;
+    margin: 5rem 5rem 0 5rem;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 810px) {
+      flex-wrap: wrap;
+      margin: 5rem 2rem 0 2rem;
     }
 
-    .easybank-services {
+    .separator {
+      width: 5rem;
+      height: 10px;
+      background-color: $colorCyan;
+
+      @media (max-width: 810px) {
+        transform: rotate(90deg) translateX(40%);
+        z-index: 0;
+        width: 10rem;
+      }
+    }
+
+    .detailed {
+      transform: translateY(15%);
+    }
+
+    .customize {
+      transform: translateY(30%);
+    }
+
+    .services-item {
+      // max-width: 350px;
+      display: flex;
+      padding: 60px 30px 30px 30px;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      background-color: #fff;
+      border-radius: 10px;
+
+      @media (max-width: 810px) {
+        padding: 0px 30px 30px 30px;
+
         h3 {
-            font-size: 1.4rem;
-            margin: 0;
+          margin: auto;
         }
-    }
 
-    .services-item-container {
+        margin-top: $spacer-xl;
+        z-index: 2;
+        text-align: center;
+      }
+
+      .icon-background {
+        background-color: $colorDarkviolet;
+        width: 5rem;
+        height: 5rem;
         display: flex;
-        margin: 5rem 5rem 0 5rem;
+        border-radius: 50%;
         justify-content: center;
         align-items: center;
+        transform: translateY(-120%);
+        margin-left: 2rem;
+        position: absolute;
 
         @media (max-width: 810px) {
-            flex-wrap: wrap;
-            margin: 5rem 2rem 0 2rem;
+          transform: translateY(-50%);
+          position: relative;
+          margin: auto;
         }
 
-        .separator {
-            width: 5rem;
-            height: 10px;
-            background-color: $colorCyan;
-
-            @media (max-width: 810px) {
-                transform: rotate(90deg) translateX(40%);
-                z-index: 0;
-                width: 10rem;
-            }
-
+        img {
+          width: 2.5rem;
+          height: 2.5rem;
         }
+      }
 
+      @media (min-width: 40rem) {
+        // max-width: 100%;
+        // margin: 0 5rem 0 5rem;
+      }
 
-        .detailed {
-            transform: translateY(15%);
-        }
+      @media (min-width: 56rem) {
+        // width: 33.333%;
+      }
 
-        .customize {
-            transform: translateY(30%);
-        }
-
-        .services-item {
-            // max-width: 350px;
-            display: flex;
-            padding: 60px 30px 30px 30px;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
-            background-color: #fff;
-            border-radius: 10px;
-
-            @media (max-width: 810px) {
-                padding: 0px 30px 30px 30px;
-
-                h3 {
-                    margin: auto;
-                }
-
-                margin-top: $spacer-xl;
-                z-index: 2;
-                text-align: center;
-            }
-
-            .icon-background {
-                background-color: $colorDarkviolet;
-                width: 5rem;
-                height: 5rem;
-                display: flex;
-                border-radius: 50%;
-                justify-content: center;
-                align-items: center;
-                transform: translateY(-120%);
-                margin-left: 2rem;
-                position: absolute;
-
-                @media (max-width: 810px) {
-                    transform: translateY(-50%);
-                    position: relative;
-                    margin: auto;
-                }
-
-                img {
-                    width: 2.5rem;
-                    height: 2.5rem;
-                }
-            }
-
-            @media (min-width: 40rem) {
-                // max-width: 100%;
-                // margin: 0 5rem 0 5rem;
-            }
-
-            @media (min-width: 56rem) {
-                // width: 33.333%;
-            }
-
-            @media (max-width: 640px) {
-                max-width: 100%;
-                text-align: center;
-            }
-        }
-
-        p {
-            margin-bottom: 0;
-        }
+      @media (max-width: 640px) {
+        max-width: 100%;
+        text-align: center;
+      }
     }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
 }

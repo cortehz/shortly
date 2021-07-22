@@ -15,17 +15,8 @@ const ShortenerSection = ({
   // const [copySuccess, setCopySuccess] = useState("");
   const textAreaRef = useRef(null);
 
-  // function copyToClipboard(e) {
-  //   textAreaRef.current.select();
-  //   document.execCommand("copy");
-  // This is just personal preference.
-  // I prefer to not show the the whole text area selected.
-  //   e.target.focus();
-  //   setCopySuccess("Copied!");
-  // }
-
   const api = axios.create({
-    baseURL: "https://rel.ink/api/links/",
+    baseURL: "https://api.shrtco.de/v2/",
   });
 
   async function loadApi(e) {
@@ -33,28 +24,41 @@ const ShortenerSection = ({
 
     // setSearch(query);
 
-    const expression = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
+    const expression =
+      /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
 
     const regex = new RegExp(expression);
 
     if (query === "" || !query.match(regex)) {
       alert("Link not available");
     } else {
-      const response = await api.post(`https://rel.ink/api/links/`, {
-        url: query,
-      });
-
-      setData([
-        ...data,
-        {
-          shortedLink: `https://rel.ink/${response.data.hashid}`,
-          link: `${response.data.url}`,
-          id: idNumber,
-        },
-      ]);
-      setQuery("");
-      window.localStorage.setItem("myArr", JSON.stringify(data));
-      setIdNumber(idNumber + 1);
+      try {
+        const response = await api.post(
+          `https://api.shrtco.de/v2/shorten?url=${query}`,
+          // set cors for axios header
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Headers":
+                "Origin, X-Requested-With, Content-Type, Accept",
+            },
+          }
+        );
+        setData([
+          ...data,
+          {
+            shortedLink: `${response.data.result.full_short_link}`,
+            link: `${response.data.original_link}`,
+            id: idNumber,
+          },
+        ]);
+        setQuery("");
+        window.localStorage.setItem("myArr", JSON.stringify(data));
+        setIdNumber(idNumber + 1);
+      } catch (e) {
+        console.log(`Error: ${e}`);
+      }
 
       // setSearch();
     }
@@ -74,10 +78,11 @@ const ShortenerSection = ({
               placeholder="http://example.com"
               value={query}
               onChange={(event) => setQuery(event.target.value.toLowerCase())}
-              required
             />
 
-            <button type="submit">Shorten it!</button>
+            <button type="submit" disabled={!!!query}>
+              Shorten it!
+            </button>
           </form>
         </div>
       </div>

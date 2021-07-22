@@ -1,6 +1,6 @@
 /* Site wide style guide */
-@import "./design-tokens/css-variables.scss";
-@import "./design-tokens/scss_variables.scss";
+@import "./variables/cssVariables.scss";
+@import "./variables/scssVariables.scss";
 @import url("https://fonts.google.com/specimen/Poppins");
 
 * {

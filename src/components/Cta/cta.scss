@@ -1,22 +1,22 @@
-@import "../../design-tokens/scss_variables.scss";
+@import "../../variables/scssVariables.scss";
 
 .cta-container {
-    padding: 50px;
-    background: url(../Cta/bg-boost-desktop.svg) no-repeat $colorDarkviolet;
+  padding: 50px;
+  background: url(../Cta/bg-boost-desktop.svg) no-repeat $colorDarkviolet;
 
-    h2 {
-        color: $Gray-light;
-        margin: 1rem;
-    }
+  h2 {
+    color: $Gray-light;
+    margin: 1rem;
+  }
 
-    a {
-        display: block;
-        background-color: #2acfcf;
-        color: #fff;
-        width: 150px;
-        border-radius: 50px;
-        padding: 15px;
-        font-weight: 700;
-        margin: auto;
-    }
+  a {
+    display: block;
+    background-color: #2acfcf;
+    color: #fff;
+    width: 150px;
+    border-radius: 50px;
+    padding: 15px;
+    font-weight: 700;
+    margin: auto;
+  }
 }

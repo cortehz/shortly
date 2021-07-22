@@ -1,165 +1,158 @@
-@import "../../design-tokens/scss_variables.scss";
+@import "../../variables/scssVariables.scss";
 
 .navbar-container {
-    display: flex;
-    background-color: #fff;
-    max-width: 1200px;
-    padding: 0 5rem 0 5rem;
+  display: flex;
+  background-color: #fff;
+  max-width: 1200px;
+  padding: 0 5rem 0 5rem;
 
-    .brand {
-        font-size: 2rem;
+  .brand {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $VeryDarkViolet;
+    align-self: center;
+  }
+
+  .nav-container {
+    display: flex;
+    width: 100%;
+  }
+
+  ul {
+    display: flex;
+    padding: $spacer-xl;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+
+    .nav-bar-links {
+      margin-left: $spacer-xl;
+
+      a {
+        color: $Gray;
         font-weight: 700;
-        color: $VeryDarkViolet;
-        align-self: center;
+      }
     }
 
+    .button-link {
+      margin-left: $spacer-xl;
+
+      a {
+        background-color: $colorCyan;
+        color: #fff;
+        padding: 10px $spacer-l 10px $spacer-l;
+        border-radius: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .user-auth-nav {
+    margin-left: auto;
+
+    a {
+      color: $GrayishViolet;
+      font-weight: 700;
+    }
+
+    .button-link {
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media (max-width: 810px) {
+  .navbar-container {
+    justify-content: space-between;
+    padding: 1rem 2rem 0 2rem;
+
+    //styling for the nav in mobile mode
     .nav-container {
-        display: flex;
-        width: 100%;
+      position: absolute;
+      flex-direction: column;
+      top: 70px;
+      max-width: 90%;
+      transition: transform 0.5s ease-in-out;
+      margin: 0 auto;
+      background-color: $colorDarkviolet;
+      border-radius: 10px;
+      left: 5%;
+    }
+
+    .navOpen {
+      transform: translateX(0);
+    }
+
+    .navClosed {
+      transform: translateX(-120%);
     }
 
     ul {
-        display: flex;
-        padding: $spacer-xl;
-        align-items: center;
-        padding-left: 0;
-        padding-right: 0;
+      padding: $spacer-l;
 
-
-        .nav-bar-links {
-            margin-left: $spacer-xl;
-
-            a {
-                color: $Gray;
-                font-weight: 700;
-            }
-        }
-
-        .button-link {
-            margin-left: $spacer-xl;
-
-            a {
-                background-color: $colorCyan;
-                color: #fff;
-                padding: 10px $spacer-l 10px $spacer-l;
-                border-radius: 20px;
-                font-weight: 700;
-            }
-
-        }
+      .nav-bar-links {
+        margin-top: 30px;
+        margin-left: 0;
+      }
     }
 
     .hamburger {
-        display: none;
+      display: flex;
+      align-self: center;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 2rem;
+      height: 1.5rem;
+
+      div {
+        width: 2rem;
+        height: 0.25rem;
+        background: $GrayishViolet;
+        border-radius: 10px;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
+      }
+    }
+
+    .navbar {
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
     }
 
     .user-auth-nav {
-        margin-left: auto;
+      flex-direction: column;
+      margin: 20px;
+      padding: 0;
+      border-top: 1px solid $GrayishViolet;
+
+      li {
+        margin-top: 20px;
 
         a {
-            color: $GrayishViolet;
-            font-weight: 700;
+          color: $GrayishViolet;
+          font-weight: 700;
         }
+      }
 
-        .button-link {
-            a {
-                color: #fff;
-            }
+      .button-link {
+        margin-left: 0;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        width: 100%;
+
+        a {
+          display: flex;
+          justify-content: center;
         }
+      }
     }
-}
-
-
-@media (max-width: 810px) {
-    .navbar-container {
-        justify-content: space-between;
-        padding: 1rem 2rem 0 2rem;
-
-
-        //styling for the nav in mobile mode
-        .nav-container {
-            position: absolute;
-            flex-direction: column;
-            top: 70px;
-            max-width: 90%;
-            transition: transform 0.5s ease-in-out;
-            margin: 0 auto;
-            background-color: $colorDarkviolet;
-            border-radius: 10px;
-            left: 5%;
-        }
-
-        .navOpen {
-            transform: translateX(0);
-        }
-
-        .navClosed {
-            transform: translateX(-120%);
-        }
-
-        ul {
-            padding: $spacer-l;
-
-            .nav-bar-links {
-                margin-top: 30px;
-                margin-left: 0;
-            }
-        }
-
-        .hamburger {
-            display: flex;
-            align-self: center;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 2rem;
-            height: 1.5rem;
-
-            div {
-                width: 2rem;
-                height: 0.25rem;
-                background: $GrayishViolet;
-                border-radius: 10px;
-                transition: all 0.3s linear;
-                position: relative;
-                transform-origin: 1px;
-            }
-        }
-
-        .navbar {
-            flex-direction: column;
-            margin: 0;
-            padding: 0;
-        }
-
-        .user-auth-nav {
-            flex-direction: column;
-            margin: 20px;
-            padding: 0;
-            border-top: 1px solid $GrayishViolet;
-
-            li {
-                margin-top: 20px;
-
-                a {
-                    color: $GrayishViolet;
-                    font-weight: 700;
-
-                }
-            }
-
-            .button-link {
-                margin-left: 0;
-                margin-bottom: 20px;
-                margin-top: 30px;
-                width: 100%;
-
-                a {
-                    display: flex;
-                    justify-content: center;
-                }
-            }
-        }
-    }
-
-
+  }
 }
